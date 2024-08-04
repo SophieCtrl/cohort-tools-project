@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const studentCohort = new Schema({
+const cohortSchema = new Schema({
   cohortSlug: String,
   cohortName: String,
   program: String,
@@ -16,3 +16,5 @@ const studentCohort = new Schema({
 });
 
 const Cohort = mongoose.model("Cohort", cohortSchema);
+
+module.exports = Cohort;

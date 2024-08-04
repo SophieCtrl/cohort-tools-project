@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Cohort = "./Cohort.model.js";
 
 const studentSchema = new Schema({
   firstName: String,
@@ -8,18 +7,17 @@ const studentSchema = new Schema({
   email: String,
   phone: String,
   linkedinUrl: String,
-  languages: {
-    type: [String],
-    enum: ["English", "German", "Spanish", "Italian", "French"],
-  },
+  languages: [String],
   program: String,
   background: String,
   image: String,
-  projects: { type: [String] },
+  projects: [String],
   cohort: {
     type: Schema.Types.ObjectId,
-    ref: "Cohort", // Reference to the Cohort model
+    ref: "Cohort",
   },
 });
 
 const Student = mongoose.model("Student", studentSchema);
+
+module.exports = Student;
